@@ -1,4 +1,4 @@
-# RaBe S2I Base Minimal Image
+# RaBe S2I Python Minimal Image
 
 The RaBe S2I Python Minimal Image resembles a classic [sclorg/s2i-python](https://github.com/sclorg/s2i-python-container/)
 image with the main difference being that it is based on the RaBe UBI8 Minimal Image. It's main use if as a build

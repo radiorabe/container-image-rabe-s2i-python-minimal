@@ -29,7 +29,8 @@ RUN    microdnf install -y \
          nss_wrapper \
          python39 \
          python39-pip-wheel \
-         python39-pip-wheel-wheel \
+         python39-wheel \
+         python39-wheel-wheel \
     && microdnf clean all \
     && python3.9 -mvenv ${APP_ROOT} \
     && python3.9 -mpip install /usr/share/python39-wheels/wheel-*.whl \

@@ -1,4 +1,4 @@
-FROM ghcr.io/radiorabe/s2i-base:0.5.1
+FROM ghcr.io/radiorabe/s2i-base:1.0.0
 
 EXPOSE 8080
 

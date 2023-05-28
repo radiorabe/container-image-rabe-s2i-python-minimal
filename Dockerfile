@@ -32,10 +32,9 @@ RUN    microdnf install -y \
          nss_wrapper \
          python3.11 \
          python3.11-pip-wheel \
-         python3.11-wheel-wheel \
     && microdnf clean all \
     && python3.11 -mvenv ${APP_ROOT} \
-    && python3.11 -mpip install /usr/share/python3.11-wheels/wheel-*.whl \
+    && python3.11 -mpip install /usr/share/python3.11-wheels/*.whl \
     && python3.11 -mpip install build \
     && chown -R 1001:0 ${APP_ROOT} \
     && fix-permissions ${APP_ROOT} -P \

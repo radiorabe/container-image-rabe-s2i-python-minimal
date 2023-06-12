@@ -1,0 +1,19 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: s2i-python-minimal
+  title: UBI9 S2I Python Minimal
+  description: S2I Python Minimal container base image based on S2I Base Minimal.
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+    github.com/project-slug: radiorabe/container-image-rabe-s2i-python-minimal
+  links:
+    - url: https://catalog.redhat.com/software/containers/ubi9/python-311/63f764b03f0b02a2e2d63fff
+      title: Red Hat Python 3.11
+spec:
+  type: baseimage
+  lifecycle: experimental
+  owner: it-reaktion
+  dependsOn:
+    - component:default/s2i-base-minimal

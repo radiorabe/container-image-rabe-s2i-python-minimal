@@ -12,7 +12,7 @@ metadata:
     - url: https://catalog.redhat.com/software/containers/ubi9/python-311/63f764b03f0b02a2e2d63fff
       title: Red Hat Python 3.11
 spec:
-  type: baseimage
+  type: image
   lifecycle: experimental
   owner: it-reaktion
   dependsOn:

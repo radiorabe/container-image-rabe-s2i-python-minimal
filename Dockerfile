@@ -1,3 +1,4 @@
+FROM registry.access.redhat.com/ubi9/python-311:1-7 as base
 FROM ghcr.io/radiorabe/s2i-base:2.1.1
 
 EXPOSE 8080
@@ -14,13 +15,13 @@ ENV \
     PIP_NO_CACHE_DIR=off \
     PATH=$APP_ROOT/bin:$HOME/bin:$HOME/.local/bin:$PATH
 
-COPY --from=registry.access.redhat.com/ubi9/python-311:1-7 \
+COPY --from=base \
      $STI_SCRIPTS_PATH/assemble \
      $STI_SCRIPTS_PATH/init-wrapper \
      $STI_SCRIPTS_PATH/run \
      $STI_SCRIPTS_PATH/usage \
      $STI_SCRIPTS_PATH/
-COPY --from=registry.access.redhat.com/ubi9/python-311:1-7 \
+COPY --from=base \
      $APP_ROOT/etc/scl_enable \
      $APP_ROOT/etc/
 

@@ -10,7 +10,7 @@ on:
 
 jobs:
   release-container:
-    uses: radiorabe/actions/.github/workflows/release-container.yaml@v0.21.2
+    uses: radiorabe/actions/.github/workflows/release-container.yaml@v0.22.0
     with:
       image: ghcr.io/radiorabe/s2i-python
       name: s2i-python
@@ -18,4 +18,4 @@ jobs:
       tags: minimal rhel8 rabe s2i python python311
       cosign-base-image-only: true
   mkdocs:
-    uses: radiorabe/actions/.github/workflows/release-mkdocs.yaml@v0.21.2
+    uses: radiorabe/actions/.github/workflows/release-mkdocs.yaml@v0.22.0

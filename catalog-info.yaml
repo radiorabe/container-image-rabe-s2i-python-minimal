@@ -9,8 +9,8 @@ metadata:
     backstage.io/techdocs-ref: dir:.
     github.com/project-slug: radiorabe/container-image-rabe-s2i-python-minimal
   links:
-    - url: https://catalog.redhat.com/software/containers/ubi9/python-311/63f764b03f0b02a2e2d63fff
-      title: Red Hat Python 3.11
+    - url: "https://catalog.redhat.com/software/containers/ubi9/python-312/657b08d023df896ebfacf402"
+      title: Red Hat UBI9 Python 3.12
 spec:
   type: image
   lifecycle: experimental

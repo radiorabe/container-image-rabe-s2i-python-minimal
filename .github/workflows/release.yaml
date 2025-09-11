@@ -17,5 +17,13 @@ jobs:
       display-name: RaBe S2I Python Minimal
       tags: minimal rhel8 rabe s2i python python312
       cosign-base-image-only: true
+      # base images are multi-platform for developer convenience
+      platforms: linux/amd64,linux/arm64
+      docker-daemon-config: |
+        {
+          "features": {
+            "containerd-snapshotter": true
+          }
+        }
   mkdocs:
     uses: radiorabe/actions/.github/workflows/release-mkdocs.yaml@v0.35.1

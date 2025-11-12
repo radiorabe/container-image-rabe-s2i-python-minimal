@@ -26,4 +26,4 @@ jobs:
           }
         }
   mkdocs:
-    uses: radiorabe/actions/.github/workflows/release-mkdocs.yaml@v0.37.0
+    uses: radiorabe/actions/.github/workflows/release-mkdocs.yaml@v0.38.0

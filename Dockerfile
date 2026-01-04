@@ -22,24 +22,28 @@ COPY --from=base \
      $STI_SCRIPTS_PATH/usage \
      $STI_SCRIPTS_PATH/
 COPY --from=base \
-     $APP_ROOT/etc/scl_enable \
+     $APP_ROOT/etc/generate_container_user \
      $APP_ROOT/etc/
 
-ENV BASH_ENV=${APP_ROOT}/etc/scl_enable \
-    ENV=${APP_ROOT}/etc/scl_enable \
-    PROMPT_COMMAND=". ${APP_ROOT}/etc/scl_enable"
+ENV BASH_ENV=${APP_ROOT}/bin/activate \
+    ENV=${APP_ROOT}/bin/activate \
+    PROMPT_COMMAND=". ${APP_ROOT}/bin/activate"
 
-RUN    microdnf install -y \
+RUN <<-EOR
+    set -ex
+    microdnf install -y \
          nss_wrapper \
          python3.12 \
-         python3.12-pip-wheel \
-    && microdnf clean all \
-    && python3.12 -mvenv ${APP_ROOT} \
-    && python3.12 -mpip install /usr/share/python3.12-wheels/*.whl \
-    && python3.12 -mpip install build \
-    && chown -R 1001:0 ${APP_ROOT} \
-    && fix-permissions ${APP_ROOT} -P \
-    && rpm-file-permissions
+         python3.12-pip-wheel
+    microdnf clean all
+    python3.12 -mvenv ${APP_ROOT}
+    python3.12 -mpip install /usr/share/python3.12-wheels/*.whl
+    # package is missing from EPEL0 so we install from pip
+    python3.12 -mpip install build
+    chown -R 1001:0 ${APP_ROOT}
+    fix-permissions ${APP_ROOT} -P
+    rpm-file-permissions
+EOR
 
 USER 1001
 

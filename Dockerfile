@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi9/python-312:9.6 as base
+FROM registry.access.redhat.com/ubi9/python-312:9.6 AS base
 FROM ghcr.io/radiorabe/s2i-base:2.6.0
 
 EXPOSE 8080

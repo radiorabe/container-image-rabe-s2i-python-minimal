@@ -10,13 +10,13 @@ on:
 
 jobs:
   release-container:
-    uses: radiorabe/actions/.github/workflows/release-container.yaml@b37e51397726092d8462a2a9b676ea5a5e3a8deb # v0.44.1
+    uses: radiorabe/actions/.github/workflows/release-container.yaml@5dafb461cea1f8b296d89297dc6de7bd0891f0d2 # v0.44.2
     with:
       image: ghcr.io/radiorabe/s2i-python
       name: s2i-python
       display-name: RaBe S2I Python Minimal
       tags: minimal rhel8 rabe s2i python python312
-      cosign-base-image-only: true
+      cosign-image-skip-regexp: quay.io/sclorg/python-314-minimal-c9s
       # base images are multi-platform for developer convenience
       platforms: linux/amd64,linux/arm64
       docker-daemon-config: |
@@ -28,9 +28,9 @@ jobs:
   mkdocs:
     permissions:
       contents: write # Required to push the gh-pages branch for documentation deployment.  
-    uses: radiorabe/actions/.github/workflows/release-mkdocs.yaml@b37e51397726092d8462a2a9b676ea5a5e3a8deb # v0.44.1
+    uses: radiorabe/actions/.github/workflows/release-mkdocs.yaml@5dafb461cea1f8b296d89297dc6de7bd0891f0d2 # v0.44.2
   github-actions:
     permissions:
       contents: read
       security-events: write # so zizmor can publish results to the Security tab
-    uses: radiorabe/actions/.github/workflows/test-github-actions.yaml@b37e51397726092d8462a2a9b676ea5a5e3a8deb # v0.44.1
+    uses: radiorabe/actions/.github/workflows/test-github-actions.yaml@5dafb461cea1f8b296d89297dc6de7bd0891f0d2 # v0.44.2

@@ -1,4 +1,4 @@
-FROM quay.io/sclorg/python-314-minimal-c9s:20261111@sha256:a45e30d0963d3c7c35a04633c6a4276e25a2147c5be308c085dd8f2f0b2e26d1 AS base
+FROM quay.io/sclorg/python-314-minimal-c9s:20261118@sha256:285ac81587da67eb3e1de2ade2400d64805b4fe3b1e4f9dc9c9f2ab8266aeca1 AS base
 FROM ghcr.io/radiorabe/s2i-base:2.7.1@sha256:8111c34833146b8e7cc93a1e71d3a48828fb012adce411d5bd1391eaf8941085
 
 EXPOSE 8080
